@@ -44,11 +44,9 @@ docker: aufs
 	egrep -i "^docker" /etc/group || groupadd docker
 	usermod -aG docker dokku
 	apt-get update
-ifdef DOCKER_VERSION
 	apt-get install -y lxc-docker-${DOCKER_VERSION}
-else
 	apt-get install -y docker.io
-endif
+	
 	sleep 2 # give docker a moment i guess
 
 aufs:
